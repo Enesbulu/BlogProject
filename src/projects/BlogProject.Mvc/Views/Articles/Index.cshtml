@@ -1,0 +1,77 @@
+﻿@using BlogProject.Businness.Dtos.Article
+@using BlogProject.Core.Business.Concrete
+
+@model CustomResponseDto<IList<ArticleListDto>>
+<h1>Makaleler</h1>
+
+<!-- Begin Page Content -->
+@* <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">
+        Makaleler, genellikle belirli bir konu hakkında detaylı bilgiler sunan yazılı eserlerdir. Bilimsel makaleler, araştırmacıların yeni bulgularını paylaştıkları, akademik topluluk tarafından değerlendirilen ve genellikle uzman bir editör ekibi tarafından gözden geçirilen çalışmalardır. Diğer yandan, blog yazıları gibi daha gayriresmi makaleler, geniş bir okuyucu kitlesine hitap eden, daha kişisel veya hikayeleştirilmiş içerikler sunabilir. Her iki türde de, makaleler bilgi aktarımının ve fikir alışverişinin önemli bir aracıdır.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlık</th>
+                            <th>İçerik</th>
+                            <th>Thumbnail</th>
+                            <th>Görüntülenme Sayısı</th>
+                            <th>Yorum </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Thumbnail</th>
+                        <th>Görüntülenme Sayısı</th>
+                        <th>Yorum </th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                     @foreach (ArticleListDto article in Model.Data)
+                    {
+                        <tr name="@article.Id">
+                            <td>@article.Id</td>
+                            <td>@article.Title</td>
+                            <td>@article.Content</td>
+                            <td>@article.Thumbnail</td>
+                            <td>@article.ViewCount</td>
+                            <td>@article.CommentCount</td>
+                            <td>
+                                <a  class="btn btn-success btn-sm"><i class="fas fa-plus"></i></a>
+                                <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                                <button data-id="@article.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        
+                    } 
+                    <tr>
+                        <th>Id</th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Thumbnail</th>
+                        <th>Görüntülenme Sayısı</th>
+                        <th>Yorum </th>
+                    </tr>
+                   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div> *@
+<!-- /.container-fluid -->
