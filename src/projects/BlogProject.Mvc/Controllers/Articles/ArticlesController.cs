@@ -19,7 +19,7 @@ namespace BlogProject.Mvc.Controllers.Articles
         public async Task<IActionResult> Index(CancellationToken cancellationToken =default)
         {
             CustomResponseDto<IList<ArticleListDto>> result  = await _articleService.GetListAsync(cancellationToken);
-            if (result.Data is null) return NotFound();
+            if (result?.Data is null) return NotFound();
 
             return View(result);
         }

@@ -11,7 +11,7 @@ namespace BlogProject.DataAccess.EntityFramework.Modules
             var mvcAssembly = Assembly.GetExecutingAssembly();
             var repositoryAssembly = Assembly.GetAssembly(typeof(BlogProjectDbContext));
 
-            builder.RegisterAssemblyTypes(mvcAssembly, repositoryAssembly).Where(x=> x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerMatchingLifetimeScope();
+            builder.RegisterAssemblyTypes(mvcAssembly, repositoryAssembly).Where(x=> x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
         }
     }
 }
