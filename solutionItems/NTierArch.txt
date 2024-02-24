@@ -1,0 +1,4 @@
+--Proje ile ilgili yapýlacak ek geliþtirmeler
+1- Datatable ile ilgili "exel,pdf,select,select all, .." gibi buton ekleme iþlemleri yapýlacak.(20.01.2024 tarihli video baþý gibi)
+2- Datatable daki ekleme iþlemini tablonun üstüne çýkarma ve bir butonla kategory/makale ekleme iþlemine çevirme.
+

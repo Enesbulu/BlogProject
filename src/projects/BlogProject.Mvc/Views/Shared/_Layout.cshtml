@@ -20,7 +20,7 @@
    <link href="~/css/sb-admin-2.min.css" rel="stylesheet"> 
     <link href="@Url.Content("~/css/sb-admin-2.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/vendor/datatables/dataTables.bootstrap4.min.css")" rel="stylesheet"/>
-
+    @await RenderSectionAsync("Styles",false);
 
 </head>
 
@@ -35,7 +35,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon ">
-                    <i class="fas fa-laugh-wink"></i>
+                    @* <i class="fas fa-laugh-wink"></i> *@
                 </div>
                 <div class="sidebar-brand-text mx-3">Bilge Adam</div>
             </a>
@@ -93,7 +93,7 @@
                     </form>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                   @*  <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -277,7 +277,7 @@
                             </div>
                         </li>
 
-                    </ul>
+                    </ul> *@
 
                 </nav>
                 <!-- End of Topbar -->
@@ -326,6 +326,7 @@
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    @await Component.InvokeAsync("NToastNotify")
     @await RenderSectionAsync(name: "Scripts", required: false)
 
     </body>
