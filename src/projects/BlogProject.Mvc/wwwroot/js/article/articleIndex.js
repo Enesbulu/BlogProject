@@ -1,7 +1,7 @@
-﻿
+﻿//makaleTable
 $(document).ready(function () {
 
-    const dataTable = $('#makaleTable').DataTable({
+    const dataTable = $('#articleTable').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json"
         }
@@ -13,6 +13,7 @@ $(document).ready(function () {
         const tableRow = $(`[name="${id}"]`);
         const articleName = tableRow.find("td:eq(1)").text();
         Swal.fire({
+           
             title: "Silmek istediğinize emin misiniz?",
             text: `${articleName} adlı makale silinicektir!`,
             icon: "warning",
@@ -27,7 +28,7 @@ $(document).ready(function () {
                     type: "DELETE",
                     dataType: "json",
                     data: { articleId: id },
-                    url: "/Articles/Delete/",
+                    url: "/Articles/Articles/Delete/",
                     success: function (data) {
                         if (data.isSuccess) {
 
@@ -37,6 +38,7 @@ $(document).ready(function () {
                                 'success'
                             )
                         } else {
+                            console.log(id);
                             Swal.fire({
                                 icon: "error",
                                 title: "Başarısız!",
@@ -48,6 +50,7 @@ $(document).ready(function () {
                         dataTable.row(tableRow).remove().draw();
                     },
                     error: function (err) {
+                        console.log(id);    
                         console.log(err);
                         toastr.error(`${err.responseText}`, "Hata!");
                     },
@@ -56,3 +59,5 @@ $(document).ready(function () {
         });
     });
 });
+
+                               

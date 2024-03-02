@@ -1,10 +1,11 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using BlogProject.Businness;
+using BlogProject.Business;
 using BlogProject.Core.CrossCuttingConcerns.Exceptions.Extensions;
 using BlogProject.DataAccess;
 using BlogProject.DataAccess.EntityFramework.Modules;
 using BlogProject.Mvc.AutoMapper.Profiles.Articles;
+using BlogProject.Mvc.AutoMapper.Profiles.Categories;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,14 +15,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
-    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>()).AddNToastNotifyToastr();
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>()).AddNToastNotifyToastr();//program içerisindeki bütün validation classlarýný otomatik tanýmlar.
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddDataAccessServices(builder.Configuration);
-builder.Services.AddBussinessServices();
+builder.Services.AddDataAccessServices(builder.Configuration);  //Data Access katmaný extensions
+builder.Services.AddBussinessServices();    //Business katmaný extensions   
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepositoryModule()));
-builder.Services.AddAutoMapper(typeof(ArticleViewModelProfiles));
+builder.Services.AddAutoMapper(typeof(ArticleViewModelProfiles),typeof(CategoryViewModelProfiles)); //MVC katmaný için alternatif kullanýmý  services.AddAutoMapper(Assembly.GetExecutingAssembly());
 #endregion
 
 

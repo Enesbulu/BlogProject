@@ -1,4 +1,4 @@
-﻿@using BlogProject.Businness.Dtos.Article
+﻿@using BlogProject.Business.Dtos.Article
 @using BlogProject.Core.Business.Concrete
 
 @model CustomResponseDto<IList<ArticleListDto>>
@@ -20,47 +20,48 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered dataTable" id="makaleTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                <table class="table table-bordered dataTable" id="articleTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                     <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Başlık</th>
-                        <th>İçerik</th>
-                        <th>Thumbnail</th>
-                        <th>Görüntülenme Sayısı</th>
-                        <th>Yorum </th>
-                        <th>İşlemler</th>
-                    </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlık</th>
+                            <th>İçerik</th>
+                            <th>Thumbnail</th>
+                            <th>Görüntülenme Sayısı</th>
+                            <th>Yorum </th>
+                            <th>İşlemler</th>
+                        </tr>
                     </thead>
                     <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Başlık</th>
-                        <th>İçerik</th>
-                        <th>Thumbnail</th>
-                        <th>Görüntülenme Sayısı</th>
-                        <th>Yorum </th>
-                        <th>İşlemler</th>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlık</th>
+                            <th>İçerik</th>
+                            <th>Thumbnail</th>
+                            <th>Görüntülenme Sayısı</th>
+                            <th>Yorum </th>
+                            <th>İşlemler</th>
 
-                    </tr>
+                        </tr>
                     </tfoot>
                     <tbody>
-                    @foreach (ArticleListDto article in Model.Data)
-                    {
-                        <tr name="@article.Id">
-                            <td>@article.Id</td>
-                            <td>@article.Title</td>
-                            <td>@article.Content</td>
-                            <td>@article.Thumbnail</td>
-                            <td>@article.ViewCount</td>
-                            <td>@article.CommentCount</td>
-                            <td>
-                               
-                                <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                <button data-id="@article.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
-                            </td>
-                        </tr>
-                    }
+                        @foreach (ArticleListDto article in Model.Data)
+                        {
+                            <tr name="@article.Id">
+                                <td>@article.Id</td>
+                                <td>@article.Title</td>
+                                <td>@article.Content</td>
+                                <td>@article.Thumbnail</td>
+                                <td>@article.ViewCount</td>
+                                <td>@article.CommentCount</td>
+                                <td>
+
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                                    <button data-id="@article.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+
+                            </tr>
+                        }
                     </tbody>
                 </table>
 

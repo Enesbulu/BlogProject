@@ -1,20 +1,24 @@
 ﻿using AutoMapper;
-using BlogProject.Businness.Dtos.Article;
+using BlogProject.Business.Dtos.Article;
+using BlogProject.Business.Dtos.Articles;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Entities.Concrete;
 
-namespace BlogProject.Businness.Profiles.Articles
+namespace BlogProject.Business.Profiles.Articles
 {
-    public class ArticleMappingProfile: Profile
+    public class ArticleMappingProfile : Profile
     {
         public ArticleMappingProfile()
         {
             CreateMap<Article, ArticleGetDto>().ReverseMap();
             CreateMap<Article, ArticleListDto>().ReverseMap();
-            CreateMap<Article,ArticleAddDto>().ReverseMap();
+            CreateMap<Article, ArticleAddDto>().ReverseMap();
+            CreateMap<Article, ArticleDeleteDto>().ReverseMap();
 
-            CreateMap<IPaginate<Article>,GetListResponse<ArticleListDto>>().ReverseMap();
+            CreateMap<IPaginate<Article>, GetListResponse<ArticleListDto>>().ReverseMap();
+            CreateMap<ArticleGetDto, ArticleDeleteDto>().ReverseMap();
+
         }
     }
 }

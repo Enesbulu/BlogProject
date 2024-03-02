@@ -50,6 +50,12 @@
                     <span>Makaleler</span>
                 </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Categories" asp-action="Index">
+                    <i class="fas fa-fw fa-th-list"></i>
+                    <span>Categoriler</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -326,6 +332,7 @@
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@@10"></script>
     @await Component.InvokeAsync("NToastNotify")
     @await RenderSectionAsync(name: "Scripts", required: false)
 

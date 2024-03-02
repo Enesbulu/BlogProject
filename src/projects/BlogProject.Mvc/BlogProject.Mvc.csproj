@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\corePackages\BlogProject.Core\BlogProject.Core.csproj" />
-    <ProjectReference Include="..\BlogProject.Businness\BlogProject.Businness.csproj" />
+    <ProjectReference Include="..\BlogProject.Businness\BlogProject.Business.csproj" />
     <ProjectReference Include="..\BlogProject.DataAccess\BlogProject.DataAccess.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.1" />
 

@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
-using BlogProject.Businness.Abstracts;
-using BlogProject.Businness.Dtos.Article;
+using BlogProject.Business.Abstracts;
+using BlogProject.Business.Dtos.Article;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Core.Entities.Dtos;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
 using BlogProject.Entities.Concrete;
 using System.Net;
+using BlogProject.Business.Dtos.Articles;
 
-namespace BlogProject.Businness.Concretes
+namespace BlogProject.Business.Concretes
 {
     public class ArticleManager : IArticleService
     {
@@ -32,7 +33,7 @@ namespace BlogProject.Businness.Concretes
 
         public async Task<CustomResponseDto<ArticleGetDto>> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            Article? result = await _articleRepository.GetAsync(x => x.Id == id, null, false, false, cancellationToken);
+            Article? result = await _articleRepository.GetAsync(predicate: x => x.Id == id, include: null, withDeleted: false, enableTracking: false, cancellationToken: cancellationToken);
             ArticleGetDto mappedArticleGetDto = _mapper.Map<ArticleGetDto>(result);
             return CustomResponseDto<ArticleGetDto>.Success(statusCode: (int)HttpStatusCode.OK, isSuccess: true, data: mappedArticleGetDto);
         }
@@ -61,6 +62,13 @@ namespace BlogProject.Businness.Concretes
             return CustomResponseDto<GetListResponse<ArticleListDto>>.Success(statusCode: (int)HttpStatusCode.OK, data: mappedResult, isSuccess: true);
         }
 
-
+        public async Task<CustomResponseDto<ArticleGetDto>> DeleteAsync(ArticleDeleteDto articleDeleteDto, CancellationToken cancellationToken = default)
+        {
+            Article article = _mapper.Map<Article>(articleDeleteDto);
+            Article deletedArticle = await _articleRepository.DeleteAsync(article);
+            ArticleGetDto result = _mapper.Map<ArticleGetDto>(deletedArticle);
+            return CustomResponseDto<ArticleGetDto>.Success(statusCode: (int)HttpStatusCode.OK, data: result,
+                isSuccess: true);
+        }
     }
 }

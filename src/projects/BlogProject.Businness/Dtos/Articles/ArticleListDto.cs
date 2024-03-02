@@ -1,4 +1,4 @@
-﻿namespace BlogProject.Businness.Dtos.Article
+﻿namespace BlogProject.Business.Dtos.Article
 {
     public class ArticleListDto
     {

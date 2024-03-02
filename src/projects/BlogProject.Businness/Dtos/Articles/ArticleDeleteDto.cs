@@ -1,7 +1,8 @@
-﻿namespace BlogProject.Business.Dtos.Article
+﻿namespace BlogProject.Business.Dtos.Articles
 {
-    public class ArticleAddDto
+    public class ArticleDeleteDto
     {
+        public required Guid Id { get; set; }
         public required string Title { get; set; }
         public required string Content { get; set; }
         public required string Thumbnail { get; set; }

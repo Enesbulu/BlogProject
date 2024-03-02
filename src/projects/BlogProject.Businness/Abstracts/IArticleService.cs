@@ -1,8 +1,9 @@
-﻿using BlogProject.Businness.Dtos.Article;
+﻿using BlogProject.Business.Dtos.Article;
+using BlogProject.Business.Dtos.Articles;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.Entities.Dtos;
 
-namespace BlogProject.Businness.Abstracts
+namespace BlogProject.Business.Abstracts
 {
     public interface IArticleService
     {
@@ -11,6 +12,6 @@ namespace BlogProject.Businness.Abstracts
         Task<CustomResponseDto<ArticleGetDto>> AddAsync(ArticleAddDto article, CancellationToken cancellationToken = default);
         Task<CustomResponseDto<IList<ArticleListDto>>> GetListAsync(CancellationToken cancellationToken = default);
         Task<CustomResponseDto<GetListResponse<ArticleListDto>>> GetListPaginateAsync(PageRequest pageRequest, CancellationToken cancellationToken = default);
-
+        Task<CustomResponseDto<ArticleGetDto>> DeleteAsync(ArticleDeleteDto articleDeleteDto, CancellationToken cancellationToken = default);
     }
 }

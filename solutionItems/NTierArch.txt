@@ -1,4 +1,7 @@
 --Proje ile ilgili yapýlacak ek geliþtirmeler
 1- Datatable ile ilgili "exel,pdf,select,select all, .." gibi buton ekleme iþlemleri yapýlacak.(20.01.2024 tarihli video baþý gibi)
-2- Datatable daki ekleme iþlemini tablonun üstüne çýkarma ve bir butonla kategory/makale ekleme iþlemine çevirme.
+2- Datatable daki ekleme iþlemini tablonun üstüne çýkarma ve bir butonla kategory/makale ekleme iþlemine çevirme.(Yapýldý!)
 
+3- Category Ekleme sayfasýnda Kategori Ekleme ve Kategori Silme iþlemleri yapýlacak.
+4- Makaleler sayfasýnda update iþlemi yapýlacak.
+5- yönetici paneli tarafýnda bazý alanlarýn yetkiye göre görünmesi için bir yetkiye göre görüne component ayarlanacak.( bir örnek yöntem 21.01.2024 2.16.00 gibi)

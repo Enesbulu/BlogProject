@@ -1,10 +1,10 @@
-﻿using BlogProject.Businness.Abstracts;
-using BlogProject.Businness.Concretes;
+﻿using BlogProject.Business.Abstracts;
+using BlogProject.Business.Concretes;
 using BlogProject.Core.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace BlogProject.Businness
+namespace BlogProject.Business
 {
     public static class BussinessServiceRegistration
     {

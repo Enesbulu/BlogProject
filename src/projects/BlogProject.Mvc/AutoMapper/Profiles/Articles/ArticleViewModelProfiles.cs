@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BlogProject.Businness.Dtos.Article;
+using BlogProject.Business.Dtos.Article;
 using BlogProject.Mvc.Models;
 
 namespace BlogProject.Mvc.AutoMapper.Profiles.Articles

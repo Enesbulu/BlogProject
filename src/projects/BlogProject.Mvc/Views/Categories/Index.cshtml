@@ -1,0 +1,67 @@
+﻿@using BlogProject.Business.Dtos.Categories
+@using BlogProject.Core.Business.Concrete
+
+@model CustomResponseDto<IList<CategoryListDto>>
+
+<div class="container-fluid">
+    <div id="modalPlaceHolder" aria-hidden="true"></div>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Kategori</h1>
+    <p class="mb-4">
+        Makaleler için Kategorilerin gösterildiği alan.
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Kategori</h6>
+            <!--Add Button-->
+            <a asp-controller="Categories" class="btn btn-success btn-sm float-end float-md-right"><i class="fas fa-plus"></i></a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered dataTable" id="categoryTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>İşlemler</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (CategoryListDto category in Model.Data)
+                        {
+                            <tr name="@category.Id">
+                                <td>@category.Id</td>
+                                <td>@category.Name</td>
+                                <td>@category.Description</td>
+                                <td>
+                                      <button tooltip="Güncelleme" data-id="@category.Id" class="btn btn-warning btn-sm btn-update"><i  class="fas fa-edit"></i></button>
+                               @* <button data-id="@.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button> *@
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/categories/categoryIndex.js" type="application/ecmascript"></script>
+}
+<!-- /.container-fluid -->

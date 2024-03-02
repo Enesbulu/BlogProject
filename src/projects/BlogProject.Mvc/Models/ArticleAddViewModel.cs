@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using BlogProject.Businness.Dtos.Categories;
+using BlogProject.Business.Dtos.Categories;
 
 namespace BlogProject.Mvc.Models
 {
