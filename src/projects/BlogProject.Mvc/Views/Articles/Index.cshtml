@@ -16,7 +16,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Makaleler</h6>
             <!--Add Button-->
-            <a asp-action="Add" asp-controller="Articles" class="btn btn-success btn-sm float-end float-md-right"><i class="fas fa-plus"></i></a>
+            <a asp-action="Add" asp-controller="Articles" class="btn btn-success btn-sm float-end float-md-right" data-toggle="tooltip" data-placement="top" title="Ekle"><i class="fas fa-plus"></i></a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -56,8 +56,8 @@
                                 <td>@article.CommentCount</td>
                                 <td>
 
-                                    <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                    <button data-id="@article.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Guncelle"><i class="fas fa-edit"></i></button>
+                                    <button data-id="@article.Id" class="btn btn-danger btn-sm btn-delete" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fas fa-trash-alt"></i></button>
                                 </td>
 
                             </tr>

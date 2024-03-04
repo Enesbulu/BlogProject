@@ -16,7 +16,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Kategori</h6>
             <!--Add Button-->
-            <a asp-controller="Categories" class="btn btn-success btn-sm float-end float-md-right"><i class="fas fa-plus"></i></a>
+            <a asp-controller="Categories" class="btn btn-success btn-sm float-end float-md-right" data-toggle="tooltip" data-placement="top" title="Ekle"><i class="fas fa-plus"></i></a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -46,8 +46,8 @@
                                 <td>@category.Name</td>
                                 <td>@category.Description</td>
                                 <td>
-                                      <button tooltip="Güncelleme" data-id="@category.Id" class="btn btn-warning btn-sm btn-update"><i  class="fas fa-edit"></i></button>
-                               @* <button data-id="@.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button> *@
+                                    <button data-id="@category.Id" class="btn btn-warning btn-sm btn-update" data-toggle="tooltip" data-placement="top" title="Guncelle"><i class="fas fa-edit"></i></button>
+                                    @* <button data-id="@.Id" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button> *@
                                 </td>
 
                             </tr>

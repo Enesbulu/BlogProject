@@ -38,7 +38,6 @@ $(document).ready(function () {
                                 'success'
                             )
                         } else {
-                            console.log(id);
                             Swal.fire({
                                 icon: "error",
                                 title: "Başarısız!",
@@ -50,8 +49,6 @@ $(document).ready(function () {
                         dataTable.row(tableRow).remove().draw();
                     },
                     error: function (err) {
-                        console.log(id);    
-                        console.log(err);
                         toastr.error(`${err.responseText}`, "Hata!");
                     },
                 });
