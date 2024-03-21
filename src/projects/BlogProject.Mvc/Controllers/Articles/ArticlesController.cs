@@ -5,7 +5,7 @@ using BlogProject.Business.Dtos.Articles;
 using BlogProject.Business.Dtos.Categories;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Mvc.Controllers.Base;
-using BlogProject.Mvc.Models;
+using BlogProject.Mvc.Models.Article;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NToastNotify;

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Dtos.Article;
-using BlogProject.Mvc.Models;
+using BlogProject.Business.Dtos.Articles;
+using BlogProject.Mvc.Models.Article;
 
 namespace BlogProject.Mvc.AutoMapper.Profiles.Articles
 {
@@ -9,6 +10,8 @@ namespace BlogProject.Mvc.AutoMapper.Profiles.Articles
         public ArticleViewModelProfiles()
         {
             CreateMap<ArticleAddDto, ArticleAddViewModel>().ReverseMap();
+            CreateMap<ArticleUpdateDto, ArticleUpdateViewModel>().ReverseMap();
+
         }
     }
 }

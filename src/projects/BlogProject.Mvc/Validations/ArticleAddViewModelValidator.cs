@@ -1,4 +1,4 @@
-﻿using BlogProject.Mvc.Models;
+﻿using BlogProject.Mvc.Models.Article;
 using FluentValidation;
 
 namespace BlogProject.Mvc.Validations
