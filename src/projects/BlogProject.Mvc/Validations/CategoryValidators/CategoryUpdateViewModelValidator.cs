@@ -1,9 +1,9 @@
 ﻿using BlogProject.Mvc.Models.Category;
 using FluentValidation;
 
-namespace BlogProject.Mvc.Validations
+namespace BlogProject.Mvc.Validations.CategoryValidators
 {
-    public class CategoryUpdateViewModelValidator: AbstractValidator<CategoryUpdateViewModel>
+    public class CategoryUpdateViewModelValidator : AbstractValidator<CategoryUpdateViewModel>
     {
         public CategoryUpdateViewModelValidator()
         {

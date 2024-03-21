@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Abstracts;
 using BlogProject.Business.Dtos.Article;
+using BlogProject.Business.Dtos.Articles;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Core.Entities.Dtos;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
 using BlogProject.Entities.Concrete;
 using System.Net;
-using BlogProject.Business.Dtos.Articles;
 
 namespace BlogProject.Business.Concretes
 {
@@ -69,6 +69,16 @@ namespace BlogProject.Business.Concretes
             ArticleGetDto result = _mapper.Map<ArticleGetDto>(deletedArticle);
             return CustomResponseDto<ArticleGetDto>.Success(statusCode: (int)HttpStatusCode.OK, data: result,
                 isSuccess: true);
+        }
+
+        public async Task<CustomResponseDto<ArticleGetDto>> UpdateAsync(ArticleUpdateDto articleUpdateDto)
+        {
+            Article article = _mapper.Map<Article>(articleUpdateDto);
+            Article result = await _articleRepository.UpdateAsync(article);
+            ArticleGetDto mappedResult = _mapper.Map<ArticleGetDto>(result);
+
+            return CustomResponseDto<ArticleGetDto>.Success(statusCode: (int)HttpStatusCode.OK, data: mappedResult, isSuccess: true);
+
         }
     }
 }

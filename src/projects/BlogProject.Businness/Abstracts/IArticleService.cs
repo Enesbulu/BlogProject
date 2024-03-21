@@ -13,5 +13,6 @@ namespace BlogProject.Business.Abstracts
         Task<CustomResponseDto<IList<ArticleListDto>>> GetListAsync(CancellationToken cancellationToken = default);
         Task<CustomResponseDto<GetListResponse<ArticleListDto>>> GetListPaginateAsync(PageRequest pageRequest, CancellationToken cancellationToken = default);
         Task<CustomResponseDto<ArticleGetDto>> DeleteAsync(ArticleDeleteDto articleDeleteDto, CancellationToken cancellationToken = default);
+        Task<CustomResponseDto<ArticleGetDto>> UpdateAsync(ArticleUpdateDto articleUpdateDto);  //Update service interface
     }
 }

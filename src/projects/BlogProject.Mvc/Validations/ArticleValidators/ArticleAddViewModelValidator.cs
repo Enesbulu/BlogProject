@@ -1,7 +1,7 @@
 ﻿using BlogProject.Mvc.Models.Article;
 using FluentValidation;
 
-namespace BlogProject.Mvc.Validations
+namespace BlogProject.Mvc.Validations.ArticleValidators
 {
     public class ArticleAddViewModelValidator : AbstractValidator<ArticleAddViewModel>
     {
