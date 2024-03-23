@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace BlogProject.DataAccess.EntityFramework.Configuraions
+namespace BlogProject.DataAccess.EntityFramework.Configurations
 {
     public class CategoryConfiguration : BaseConfiguration<Category,Guid>
     {

@@ -4,6 +4,7 @@ using BlogProject.Business.Dtos.Article;
 using BlogProject.Business.Dtos.Articles;
 using BlogProject.Business.Dtos.Categories;
 using BlogProject.Core.Business.Concrete;
+using BlogProject.Entities.Concrete;
 using BlogProject.Mvc.Controllers.Base;
 using BlogProject.Mvc.Models.Article;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace BlogProject.Mvc.Controllers.Articles
         }
 
         /// <summary>
-        /// Makaleler Tablosunun olduğu sayfayı Get Attribute ile çağırır.
+        /// Makaleler Tablosunun olduğu sayfayı Get Attribute ile çağırır.Makalelerin listelendiği sayfa açılır.
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
@@ -44,11 +45,11 @@ namespace BlogProject.Mvc.Controllers.Articles
         }
 
         /// <summary>
-        /// Makale ekleme sayfasını Get Attiribute ile çağırır.
+        /// Makale ekleme sayfasını Get Attiribute ile çağırır. Makale ekleme sayfasını açar.
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        [HttpGet("Add")]
+        [HttpGet("Article/Add")]
         public async Task<IActionResult> Add(CancellationToken cancellationToken = default)
         {
             CustomResponseDto<IList<CategoryListDto>> categories = await _categoryService.GetListAsync(cancellationToken: cancellationToken);
@@ -66,7 +67,7 @@ namespace BlogProject.Mvc.Controllers.Articles
         /// </summary>
         /// <param name="articleAddViewModel"></param>
         /// <returns></returns>
-        [HttpPost("Add")]
+        [HttpPost("Article/Add")]
         public async Task<IActionResult> Add(ArticleAddViewModel articleAddViewModel)
         {
             if (ModelState.IsValid)
@@ -101,5 +102,38 @@ namespace BlogProject.Mvc.Controllers.Articles
 
             return null;
         }
+
+
+       
+        //Todo: Makale güncelleme için servis yazılacak. Servis yazılırken Add metodu referans alınacak. Get işlemi ile ilgili idye sahip makale db den çekilecek ve ekranda dolu olarak gösterilecek. 
+
+        ///// <summary>
+        ///// Makale güncelleme işlemi için Post Attribute kullanır. Hata yoksa anlık olarak günceller ve gösterir. Hata varsa validator ile hataları gösterir.
+        ///// </summary>
+        ///// <param name="articleAddViewModel"></param>
+        ///// <returns></returns>
+        //[HttpPost("Update")]
+        //public async Task<IActionResult> Update(Guid articleId,ArticleAddViewModel articleAddViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ArticleAddDto articleAddDto = _mapper.Map<ArticleAddDto>(articleAddViewModel);
+        //        CustomResponseDto<ArticleGetDto> result = await _articleService.AddAsync(articleAddDto);
+        //        if (result.IsSuccess)
+        //        {
+        //            _toastNotification.AddSuccessToastMessage("Makale başarıyla güncellenmiştir", new ToastrOptions
+        //            {
+        //                Title = "Başarılı İşlem!"
+        //            });
+        //            return RedirectToAction("Index", "Articles");
+        //        }
+        //    }
+        //    CustomResponseDto<IList<CategoryListDto>> categories = await _categoryService.GetListAsync();
+        //    articleAddViewModel.Categories = categories.Data;
+        //    return View(articleAddViewModel);
+        //}
+
+
+
     }
 }

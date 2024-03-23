@@ -4,7 +4,7 @@ using BlogProject.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BlogProject.DataAccess.EntityFramework.Configuraions
+namespace BlogProject.DataAccess.EntityFramework.Configurations
 {
     public class ArticleConfiguration : BaseConfiguration<Article,Guid>
     {
