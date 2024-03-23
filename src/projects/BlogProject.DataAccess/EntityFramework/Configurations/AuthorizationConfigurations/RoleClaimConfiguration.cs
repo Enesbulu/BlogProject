@@ -1,4 +1,4 @@
-﻿using BlogProject.Entities.Concrete;
+﻿using BlogProject.Entities.Concrete.AuthEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -3,7 +3,7 @@ using BlogProject.Business.Dtos.Article;
 using BlogProject.Business.Dtos.Articles;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.DataAccess.Base.Paging;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 
 namespace BlogProject.Business.Profiles.Articles
 {

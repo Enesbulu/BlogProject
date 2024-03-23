@@ -6,7 +6,7 @@ using BlogProject.Core.Business.Concrete;
 using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Core.Entities.Dtos;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 using System.Net;
 
 namespace BlogProject.Business.Concretes

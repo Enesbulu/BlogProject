@@ -1,6 +1,6 @@
 ﻿using BlogProject.Core.DataAccess.Base.Configurations;
 using BlogProject.DataAccess.EntityFramework.Constants;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

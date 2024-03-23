@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Dtos.Categories;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 
 namespace BlogProject.Business.Profiles.Categories
 {

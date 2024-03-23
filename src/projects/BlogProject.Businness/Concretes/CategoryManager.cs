@@ -5,7 +5,7 @@ using BlogProject.Business.Dtos.Article;
 using BlogProject.Business.Dtos.Categories;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 
 namespace BlogProject.Business.Concretes
 {

@@ -1,5 +1,5 @@
 ﻿using BlogProject.Core.DataAccess.Base.Repositories;
-using BlogProject.Entities.Concrete;
+using BlogProject.Entities.Concrete.Entities;
 
 namespace BlogProject.DataAccess.EntityFramework.Repositories.Abstracts
 {

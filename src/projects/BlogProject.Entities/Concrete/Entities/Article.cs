@@ -1,6 +1,6 @@
 ﻿using BlogProject.Core.Entities.Base.Abstract;
 
-namespace BlogProject.Entities.Concrete
+namespace BlogProject.Entities.Concrete.Entities
 {
     public class Article : Entity<Guid>
     {
@@ -11,14 +11,14 @@ namespace BlogProject.Entities.Concrete
         public int ViewCount { get; set; } = 0;
         public int CommentCount { get; set; } = 0;
         public Guid CategoryId { get; set; }
-        public  Category Category { get; set; }
+        public Category Category { get; set; }
 
         public Article()
         {
         }
-        public Article(Guid id ,string title, string content, string thumbnail, DateTime date, int viewCount, int commentCount, Guid categoryId):this() 
+        public Article(Guid id, string title, string content, string thumbnail, DateTime date, int viewCount, int commentCount, Guid categoryId) : this()
         {
-            Id = id; 
+            Id = id;
             Title = title;
             Content = content;
             Thumbnail = thumbnail;
@@ -26,7 +26,7 @@ namespace BlogProject.Entities.Concrete
             ViewCount = viewCount;
             CommentCount = commentCount;
             CategoryId = categoryId;
-           
+
         }
 
     }
