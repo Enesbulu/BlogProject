@@ -8,8 +8,8 @@
         public const string THUMBNAIL = "Thumbnail";
         public const string DATE = "Date";
         public const string VIEW_COUNT = "ViewCount";
-        public const string COMMENT_COUNT = "ViewCount";
-        public const string CATEGORY_ID = "ViewCount";
+        public const string COMMENT_COUNT = "CommnetCount";
+        public const string CATEGORY_ID = "CategoryId";
 
 
         //CORRECTION REQUEST TABLE
