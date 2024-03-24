@@ -7,8 +7,8 @@ namespace BlogProject.Entities.Concrete.Entities
     public class CorrectionRequest : Entity<Guid>
     {
 
-        public Guid ArticleId { get; set; }
-        public Guid UserId { get; set; }
+        public required Guid ArticleId { get; set; }
+        public required Guid UserId { get; set; }
         public required string RequestContent { get; set; } = string.Empty;
         public required CorrectionRequestStatus Status { get; set; } = CorrectionRequestStatus.None;
 

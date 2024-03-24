@@ -12,6 +12,8 @@ namespace BlogProject.Entities.Concrete.Entities
         public int CommentCount { get; set; } = 0;
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+        public IEnumerable<Comment> Comment { get; set; } = default;
+        public IEnumerable<CorrectionRequest?> CorrectionRequest { get; set; } = default;
 
         public Article()
         {

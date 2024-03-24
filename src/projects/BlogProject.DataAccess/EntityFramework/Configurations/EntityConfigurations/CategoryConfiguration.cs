@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace BlogProject.DataAccess.EntityFramework.Configurations
+namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurations
 {
-    public class CategoryConfiguration : BaseConfiguration<Category,Guid>
+    public class CategoryConfiguration : BaseConfiguration<Category, Guid>
     {
         public override void Configure(EntityTypeBuilder<Category> builder)
         {

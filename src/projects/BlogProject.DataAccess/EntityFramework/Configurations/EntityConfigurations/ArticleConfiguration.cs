@@ -4,20 +4,20 @@ using BlogProject.Entities.Concrete.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BlogProject.DataAccess.EntityFramework.Configurations
+namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurations
 {
-    public class ArticleConfiguration : BaseConfiguration<Article,Guid>
+    public class ArticleConfiguration : BaseConfiguration<Article, Guid>
     {
         public override void Configure(EntityTypeBuilder<Article> builder)
         {
             base.Configure(builder);
-            builder.Property(x => x.Title).HasColumnName("Title").IsRequired(true).HasMaxLength(LengthContraints.TITLE_MAX_LENGTH);
-            builder.Property(x => x.Content).HasColumnName("Content").IsRequired(true);
-            builder.Property(x => x.Thumbnail).HasColumnName("Thumbnail").IsRequired(true).HasMaxLength(LengthContraints.THUMBNAIL_MAX_LENGTH);
-            builder.Property(x => x.Date).HasColumnName("Date").IsRequired(true);
-            builder.Property(x => x.ViewCount).HasColumnName("ViewCount").IsRequired(true);
-            builder.Property(x => x.CommentCount).HasColumnName("CommentCount").IsRequired(true);
-            builder.Property(x => x.CategoryId).HasColumnName("CategoryId").IsRequired(true);
+            builder.Property(x => x.Title).HasColumnName(ColumNameConstants.TITLE).IsRequired(true).HasMaxLength(LengthContraints.TITLE_MAX_LENGTH);
+            builder.Property(x => x.Content).HasColumnName(ColumNameConstants.CONTENT).IsRequired(true);
+            builder.Property(x => x.Thumbnail).HasColumnName(ColumNameConstants.THUMBNAIL).IsRequired(true).HasMaxLength(LengthContraints.THUMBNAIL_MAX_LENGTH);
+            builder.Property(x => x.Date).HasColumnName(ColumNameConstants.DATE).IsRequired(true);
+            builder.Property(x => x.ViewCount).HasColumnName(ColumNameConstants.VIEW_COUNT).IsRequired(true);
+            builder.Property(x => x.CommentCount).HasColumnName(ColumNameConstants.COMMENT_COUNT).IsRequired(true);
+            builder.Property(x => x.CategoryId).HasColumnName(ColumNameConstants.CATEGORY_ID).IsRequired(true);
             builder.HasOne(x => x.Category).WithMany(x => x.Articles).HasForeignKey(x => x.CategoryId);
             builder.ToTable(TableNameConstants.ARTICLE);
             builder.HasData(data: GetSeeds());
