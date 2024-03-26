@@ -1,4 +1,6 @@
 ﻿using BlogProject.Core.Entities.Base.Abstract;
+using BlogProject.Entities.Concrete.AuthEntities;
+using BlogProject.Entities.Concrete.Entities.RelationshipTables;
 
 namespace BlogProject.Entities.Concrete.Entities
 {
@@ -11,14 +13,17 @@ namespace BlogProject.Entities.Concrete.Entities
         public int ViewCount { get; set; } = 0;
         public int CommentCount { get; set; } = 0;
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
-        public IEnumerable<Comment> Comment { get; set; } = default;
+        public  Category Category { get; set; } 
+        public IEnumerable<Comment?> Comment { get; set; } = default;
         public IEnumerable<CorrectionRequest?> CorrectionRequest { get; set; } = default;
+        public ICollection<ArticlesTags> ArticleTags { get; set; }
+        //public Guid UserId { get; set; }
+        //public User User { get; set; }
 
         public Article()
         {
         }
-        public Article(Guid id, string title, string content, string thumbnail, DateTime date, int viewCount, int commentCount, Guid categoryId) : this()
+        public Article(Guid id, string title, string content, string thumbnail, DateTime date, int viewCount, int commentCount, Guid categoryId, ICollection<ArticlesTags> articleTags) 
         {
             Id = id;
             Title = title;
@@ -28,7 +33,7 @@ namespace BlogProject.Entities.Concrete.Entities
             ViewCount = viewCount;
             CommentCount = commentCount;
             CategoryId = categoryId;
-
+            ArticleTags = articleTags;
         }
 
     }

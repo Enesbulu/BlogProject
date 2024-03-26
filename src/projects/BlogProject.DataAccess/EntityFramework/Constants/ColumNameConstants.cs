@@ -25,6 +25,12 @@
         public const string IS_PUBLISHED = "IsPublished ";
         public const string IS_APPROVED = "IsApproved ";
 
+        //TAG TABLE
+        public const string TAG_NAME = "TagName ";
+        public const string ARTICLE_TAGS = "ArticleTags ";
+
+
+
 
 
     }

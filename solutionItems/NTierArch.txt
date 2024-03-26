@@ -33,6 +33,8 @@
 
 
 
+// PROJE NOTLARI
+- Makale ve Etiketler n-n iliþkilidir. Ara tablo kullanýlmýþtýr. Bir makalenin 1'den fazla etiketi olabilir, bir etikette 1'den fazla makale olabilir.
 
 
 

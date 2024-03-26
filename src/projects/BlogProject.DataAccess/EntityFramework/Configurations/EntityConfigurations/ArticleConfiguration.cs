@@ -1,6 +1,8 @@
-﻿using BlogProject.Core.DataAccess.Base.Configurations;
+﻿using System.Data.SqlTypes;
+using BlogProject.Core.DataAccess.Base.Configurations;
 using BlogProject.DataAccess.EntityFramework.Constants;
 using BlogProject.Entities.Concrete.Entities;
+using BlogProject.Entities.Concrete.Entities.RelationshipTables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,6 +13,7 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
         public override void Configure(EntityTypeBuilder<Article> builder)
         {
             base.Configure(builder);
+            //Özellikler
             builder.Property(x => x.Title).HasColumnName(ColumNameConstants.TITLE).IsRequired(true).HasMaxLength(LengthContraints.TITLE_MAX_LENGTH);
             builder.Property(x => x.Content).HasColumnName(ColumNameConstants.CONTENT).IsRequired(true);
             builder.Property(x => x.Thumbnail).HasColumnName(ColumNameConstants.THUMBNAIL).IsRequired(true).HasMaxLength(LengthContraints.THUMBNAIL_MAX_LENGTH);
@@ -18,11 +21,19 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
             builder.Property(x => x.ViewCount).HasColumnName(ColumNameConstants.VIEW_COUNT).IsRequired(true);
             builder.Property(x => x.CommentCount).HasColumnName(ColumNameConstants.COMMENT_COUNT).IsRequired(true);
             builder.Property(x => x.CategoryId).HasColumnName(ColumNameConstants.CATEGORY_ID).IsRequired(true);
+
+            //İlişkiler
             builder.HasOne(x => x.Category).WithMany(x => x.Articles).HasForeignKey(x => x.CategoryId);
+
             builder.ToTable(TableNameConstants.ARTICLE);
             builder.HasData(data: GetSeeds());
 
         }
+
+        /// <summary>
+        /// Temsili-geçici veriler.
+        /// </summary>
+        /// <returns></returns>
         private static HashSet<Article> GetSeeds()
         {
             HashSet<Article> articles =

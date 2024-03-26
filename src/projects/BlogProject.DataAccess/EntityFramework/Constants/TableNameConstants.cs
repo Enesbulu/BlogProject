@@ -6,6 +6,8 @@
         public const string CATEGORY = "Categories";
         public const string CORRECTION_REQUEST = "CorrectionRequests";
         public const string COMMENT = "COMMENTS";
+        public const string TAG = "Tags";
+        public const string ARTICLE_TAG= "ArticleTags";
 
     }
 }

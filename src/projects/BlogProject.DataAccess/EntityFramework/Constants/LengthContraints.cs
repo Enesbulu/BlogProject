@@ -17,6 +17,8 @@
         public const byte CORRECTION_REQUEST_USERID_MAXLENGTH = 40;
         public const short CORRECTION_REQUEST_MAXLENGTH = 500;
         public const short COMMENT_CONTENT_MAXLENGTH = 200;
+        public const short TAG_NAME_MAX_LENGTH = 20;
+        //public const short TAG_NAME_MİN_LENGTH = 2;
 
 
 
