@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Dtos.Categories;
+using BlogProject.Core.Business.Concrete;
+using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Entities.Concrete.Entities;
 
 namespace BlogProject.Business.Profiles.Categories
@@ -11,6 +13,12 @@ namespace BlogProject.Business.Profiles.Categories
             CreateMap<Category, CategoryListDto>().ReverseMap();
             CreateMap<Category, CategoryGetDto>().ReverseMap();
             CreateMap<Category, CategoryUpdateDto>().ReverseMap();
+            CreateMap<Category, CategoryDeleteDto>().ReverseMap();
+            CreateMap<Category, CategoryAddDto>().ReverseMap();
+
+            CreateMap<IPaginate<Category>, GetListResponse<CategoryListDto>>().ReverseMap();
+            CreateMap<CategoryGetDto, CategoryDeleteDto>().ReverseMap();
+
 
         }
     }

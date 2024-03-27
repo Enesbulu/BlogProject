@@ -6,7 +6,7 @@
 
 
 ---  Makaleler
-* Makaleler sayfasýnda Datatable da mütün makale yazýdý gözüküyor. Bunu düzenle.
+* Makaleler sayfasýnda Datatable da bütün makale yazýdý gözüküyor. Bunu düzenle.
 * Makaleler sayfasýnda update iþlemi yapýlacak.
 
 

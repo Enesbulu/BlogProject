@@ -5,6 +5,7 @@ using BlogProject.Core.Business.Concrete;
 using BlogProject.Mvc.Controllers.Base;
 using BlogProject.Mvc.Controllers.Extensions;
 using BlogProject.Mvc.Models;
+using BlogProject.Mvc.Models.Article;
 using BlogProject.Mvc.Models.Category;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -82,5 +83,17 @@ namespace BlogProject.Mvc.Controllers.Categories
             }
             return NotFound();
         }
+
+        //[HttpGet("Categories/Add")]
+        //public async Task<IActionResult> Add(CancellationToken cancellationToken = default)
+        //{
+        //    CustomResponseDto<IList<CategoryListDto>> categories = await _categoryService.GetListAsync(cancellationToken);
+        //    if (categories.IsSuccess)
+        //    {
+        //        return View(categories.Data);
+        //    }
+
+        //    return NotFound();
+        //}
     }
 }
