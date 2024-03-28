@@ -10,6 +10,7 @@ namespace BlogProject.Mvc.AutoMapper.Profiles.Categories
         {
             CreateMap<CategoryGetDto, CategoryUpdateViewModel>().ReverseMap();
             CreateMap<CategoryUpdateDto, CategoryUpdateViewModel>().ReverseMap();
+            CreateMap<CategoryAddDto, CategoryAddViewModel>().ReverseMap();
         }
     }
 }

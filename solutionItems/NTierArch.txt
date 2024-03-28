@@ -11,7 +11,7 @@
 
 
 --- Categoriler
-* Category Ekleme sayfasýnda Kategori Ekleme ve Kategori Silme iþlemleri yapýlacak.
+* Category Ekleme sayfasýnda Kategori Ekleme ve Kategori Silme iþlemleri yapýlacak.	--Tamamlandý!!
 
 
 --- Yetki Ýþlemleri
@@ -35,6 +35,7 @@
 
 // PROJE NOTLARI
 - Makale ve Etiketler n-n iliþkilidir. Ara tablo kullanýlmýþtýr. Bir makalenin 1'den fazla etiketi olabilir, bir etikette 1'den fazla makale olabilir.
+- Makale eklemeiþleminde "ekle" iþleminde datatable refresh olmuyor. id ile ilgili bir hata var. Buna bakýlacak.
 
 
 

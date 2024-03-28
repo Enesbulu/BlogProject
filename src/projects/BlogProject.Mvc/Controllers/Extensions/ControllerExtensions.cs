@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProject.Mvc.Controllers.Extensions
 {
+    /// <summary>
+    /// Partial view yapısını string yapıya, string yapıdan modal yapısına çeviren yapılar.
+    /// </summary>
     public static class ControllerExtensions
     {
         /// <summary>

@@ -4,12 +4,8 @@ using BlogProject.Business.Dtos.Categories;
 using BlogProject.Core.Business.Concrete;
 using BlogProject.Mvc.Controllers.Base;
 using BlogProject.Mvc.Controllers.Extensions;
-using BlogProject.Mvc.Models;
-using BlogProject.Mvc.Models.Article;
 using BlogProject.Mvc.Models.Category;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using NToastNotify.Helpers;
 
 namespace BlogProject.Mvc.Controllers.Categories
 {
@@ -73,10 +69,10 @@ namespace BlogProject.Mvc.Controllers.Categories
                 CustomResponseDto<CategoryGetDto> result = await _categoryService.UpdateAsync(categoryUpdateDto);
                 if (result.IsSuccess)
                 {
-                    string categoryUpdateAjaxModel = System.Text.Json.JsonSerializer.Serialize( new CategoryUpdateAjaxViewModel
+                    string categoryUpdateAjaxModel = System.Text.Json.JsonSerializer.Serialize(new CategoryUpdateAjaxViewModel
                     {
                         CategoryGetDto = result.Data,
-                        CategoryUpdatePartial = await this.RenderViewToStringAsync("_CategoryUpdatePartial",model: categoryUpdateViewModel)
+                        CategoryUpdatePartial = await this.RenderViewToStringAsync("_CategoryUpdatePartial", model: categoryUpdateViewModel)
                     }); //JsonSerializer.Serialize
                     return Json(categoryUpdateAjaxModel);
                 }
@@ -84,16 +80,72 @@ namespace BlogProject.Mvc.Controllers.Categories
             return NotFound();
         }
 
-        //[HttpGet("Categories/Add")]
-        //public async Task<IActionResult> Add(CancellationToken cancellationToken = default)
-        //{
-        //    CustomResponseDto<IList<CategoryListDto>> categories = await _categoryService.GetListAsync(cancellationToken);
-        //    if (categories.IsSuccess)
-        //    {
-        //        return View(categories.Data);
-        //    }
+        /// <summary>
+        /// Kategori eklemek için açılacak modala ait Get işlemi.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpGet("Categories/Add")]
+        public async Task<IActionResult> Add(CancellationToken cancellationToken = default)
+        {
+            CategoryAddViewModel emptyCategoryAddViewModel = new CategoryAddViewModel();
 
-        //    return NotFound();
-        //}
+            try
+            {
+                return PartialView("_CategoryAddPartial", emptyCategoryAddViewModel);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return NotFound();
+            }
+
+        }
+
+        /// <summary>
+        /// Kategori ekleme işlemi için post işlem servisi.
+        /// </summary>
+        /// <param name="categoryAddViewModel"></param>
+        /// <returns></returns>
+        [HttpPost("Categories/Add")]
+        public async Task<IActionResult> Add(CategoryAddViewModel categoryAddViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                CategoryAddDto categoryAddDto = _mapper.Map<CategoryAddDto>(categoryAddViewModel);
+                CustomResponseDto<CategoryGetDto> result = await _categoryService.AddAsync(categoryAddDto);
+                if (result.IsSuccess)
+                {
+                    string categoryAddAjaxModel = System.Text.Json.JsonSerializer.Serialize(new CategoryAddAjaxViewModel
+                    {
+                        CategoryGetDto = result.Data,
+                        CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartial", model: categoryAddViewModel)
+                    }); //JsonSerializer.Serialize
+                    return Json(categoryAddAjaxModel);
+                }
+            }
+            return NotFound();
+        }
+
+
+        /// <summary>
+        /// Kategori silme işlemi için oluşturulmuş HttpDelete metodu.
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+        [HttpDelete("Categories/Delete/{categoryId}")]
+        public async Task<JsonResult?> Delete(Guid categoryId)
+        {
+            CustomResponseDto<CategoryGetDto> category = await _categoryService.GetByIdAsync(categoryId);
+            if (category.Data is not null)
+            {
+                CategoryDeleteDto categoryDeleteDto = _mapper.Map<CategoryDeleteDto>(category.Data);
+                CustomResponseDto<CategoryGetDto> result = await _categoryService.DeleteAsync(categoryDeleteDto);
+                return Json(result);
+            }
+
+            return null;
+        }
+
     }
 }
