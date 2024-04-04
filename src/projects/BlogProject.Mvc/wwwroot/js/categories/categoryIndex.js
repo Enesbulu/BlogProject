@@ -49,7 +49,7 @@
                 const id = categoryAddAjaxModel.CategoryGetDto.Id;  //Muhtemel hata yeri
                 const tableRow = $(`[name="${id}"]`);
                 placeHolderDiv.find('.modal').modal('hide');
-                dataTable.row().data([
+                dataTable.row(tableRow).data([
                     categoryAddAjaxModel.CategoryGetDto.Id,
                     categoryAddAjaxModel.CategoryGetDto.Name,
                     categoryAddAjaxModel.CategoryGetDto.Description,

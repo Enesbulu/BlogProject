@@ -21,12 +21,15 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
             builder.Property(x => x.ViewCount).HasColumnName(ColumNameConstants.VIEW_COUNT).IsRequired(true);
             builder.Property(x => x.CommentCount).HasColumnName(ColumNameConstants.COMMENT_COUNT).IsRequired(true);
             builder.Property(x => x.CategoryId).HasColumnName(ColumNameConstants.CATEGORY_ID).IsRequired(true);
+            builder.Property(x => x.AuthorId).HasColumnName(ColumNameConstants.AUTHOR_ID).IsRequired(true);
+            builder.Property(x => x.EditorId).HasColumnName(ColumNameConstants.EDITOR_ID);
 
             //İlişkiler
             builder.HasOne(x => x.Category).WithMany(x => x.Articles).HasForeignKey(x => x.CategoryId);
-
+            builder.HasOne<Author>(a => a.Author).WithMany(aut => aut.Article).HasForeignKey(art => art.AuthorId);
+            builder.HasOne<Editor>(art => art.Editor).WithMany(e => e.Article).HasForeignKey(a => a.EditorId);
             builder.ToTable(TableNameConstants.ARTICLE);
-            builder.HasData(data: GetSeeds());
+            //builder.HasData(data: GetSeeds());
 
         }
 
@@ -38,9 +41,11 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
         {
             HashSet<Article> articles =
             [
-                new Article { Id = Guid.NewGuid(), Title = "C# 9.0", Content = "C# 9.0 ile ilgili makaleler", Thumbnail = "csharp.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now },
-                new Article { Id = Guid.NewGuid(), Title = "Java 11", Content = "Java 11 ile ilgili makaleler", Thumbnail = "java.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("c33260dd-b051-4a2d-923a-4c16553e4753"), CreatedBy = "System", CreatedDate = DateTime.Now },
-                new Article { Id = Guid.NewGuid(), Title = "Python 3.9", Content = "Python 3.9 ile ilgili makaleler", Thumbnail = "python.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now },
+                new Article { Id = Guid.NewGuid(), Title = "C# 9.0", Content = "C# 9.0 ile ilgili makaleler", Thumbnail = "csharp.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now,AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6")},
+
+                new Article { Id = Guid.NewGuid(), Title = "Java 11", Content = "Java 11 ile ilgili makaleler", Thumbnail = "java.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("c33260dd-b051-4a2d-923a-4c16553e4753"), CreatedBy = "System", CreatedDate = DateTime.Now, AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6")},
+                
+                new Article { Id = Guid.NewGuid(), Title = "Python 3.9", Content = "Python 3.9 ile ilgili makaleler", Thumbnail = "python.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now,AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6") },
             ];
 
             return articles;

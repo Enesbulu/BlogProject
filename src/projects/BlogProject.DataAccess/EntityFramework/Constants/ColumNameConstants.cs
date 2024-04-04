@@ -10,6 +10,8 @@
         public const string VIEW_COUNT = "ViewCount";
         public const string COMMENT_COUNT = "CommnetCount";
         public const string CATEGORY_ID = "CategoryId";
+        public const string AUTHOR_ID = "AuthorId";
+        public const string EDITOR_ID = "EditorId";
 
 
         //CORRECTION REQUEST TABLE
@@ -29,7 +31,14 @@
         public const string TAG_NAME = "TagName ";
         public const string ARTICLE_TAGS = "ArticleTags ";
 
+        //AUTHOR TABLE
+        public const string AUTHOR_FIRST_NAME = "FirstName"; 
+        public const string AUTHOR_LAST_NAME = "LastName";
 
+
+        //EDITOR TABLE
+        public const string EDITOR_FIRST_NAME = "FirstName";
+        public const string EDITOR_LAST_NAME = "LastName";
 
 
 

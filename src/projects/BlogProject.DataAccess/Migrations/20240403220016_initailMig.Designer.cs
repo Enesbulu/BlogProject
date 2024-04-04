@@ -4,6 +4,7 @@ using BlogProject.DataAccess.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProject.DataAccess.Migrations
 {
     [DbContext(typeof(BlogProjectDbContext))]
-    partial class BlogProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240403220016_initailMig")]
+    partial class initailMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,10 +243,6 @@ namespace BlogProject.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("AuthorId");
-
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("CategoryId");
@@ -278,10 +277,6 @@ namespace BlogProject.DataAccess.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EditorId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("EditorId");
-
                     b.Property<string>("ModifiedBy")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -313,92 +308,55 @@ namespace BlogProject.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("EditorId");
-
                     b.ToTable("Articles", (string)null);
-                });
-
-            modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Author", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("FirstName");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)")
-                        .HasColumnName("LastName");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Authors", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0ca3d6f3-11af-4f5d-a868-b500a8c9e829",
-                            Email = "orhan_balcik.@mail.com",
-                            EmailConfirmed = false,
-                            FirstName = "Orhan",
-                            LastName = "Balçık",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false
+                            Id = new Guid("3db3d7e6-b63f-432e-8346-a4218f0f858a"),
+                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
+                            CommentCount = 10,
+                            Content = "C# 9.0 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5195),
+                            Date = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5160),
+                            Statu = 1,
+                            Thumbnail = "csharp.png",
+                            Title = "C# 9.0",
+                            ViewCount = 100,
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("de0f4eef-442d-44c3-be1b-4969029d9185"),
+                            CategoryId = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
+                            CommentCount = 10,
+                            Content = "Java 11 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5215),
+                            Date = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5211),
+                            Statu = 1,
+                            Thumbnail = "java.png",
+                            Title = "Java 11",
+                            ViewCount = 100,
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("0ac3ee9a-98fd-4b59-9e6c-db39e85bc97d"),
+                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
+                            CommentCount = 10,
+                            Content = "Python 3.9 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5243),
+                            Date = new DateTime(2024, 4, 4, 1, 0, 15, 747, DateTimeKind.Local).AddTicks(5240),
+                            Statu = 1,
+                            Thumbnail = "python.png",
+                            Title = "Python 3.9",
+                            ViewCount = 100,
+                            isDeleted = false
                         });
                 });
 
@@ -459,7 +417,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2024, 4, 4, 4, 0, 42, 886, DateTimeKind.Local).AddTicks(2320),
+                            CreatedDate = new DateTime(2024, 4, 4, 1, 0, 15, 748, DateTimeKind.Local).AddTicks(2417),
                             Description = "C# ile ilgili makaleler",
                             Name = "C#",
                             Statu = 1,
@@ -469,7 +427,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2024, 4, 4, 4, 0, 42, 886, DateTimeKind.Local).AddTicks(2339),
+                            CreatedDate = new DateTime(2024, 4, 4, 1, 0, 15, 748, DateTimeKind.Local).AddTicks(2440),
                             Description = "Java ile ilgili makaleler",
                             Name = "Java",
                             Statu = 1,
@@ -613,86 +571,6 @@ namespace BlogProject.DataAccess.Migrations
                     b.ToTable("CorrectionRequests", (string)null);
                 });
 
-            modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Editor", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("FirstName");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)")
-                        .HasColumnName("LastName");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Editors", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e4576dc2-12fc-4c52-9c4e-83ed31bd14d5",
-                            Email = "yaver_kocan.@mail.com",
-                            EmailConfirmed = false,
-                            FirstName = "Yaver",
-                            LastName = "Koçan",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false
-                        });
-                });
-
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.RelationshipTables.ArticlesTags", b =>
                 {
                     b.Property<Guid>("ArticleId")
@@ -808,29 +686,13 @@ namespace BlogProject.DataAccess.Migrations
 
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Article", b =>
                 {
-                    b.HasOne("BlogProject.Entities.Concrete.Entities.Author", "Author")
-                        .WithMany("Article")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BlogProject.Entities.Concrete.Entities.Category", "Category")
                         .WithMany("Articles")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BlogProject.Entities.Concrete.Entities.Editor", "Editor")
-                        .WithMany("Article")
-                        .HasForeignKey("EditorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-
                     b.Navigation("Category");
-
-                    b.Navigation("Editor");
                 });
 
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Comment", b =>
@@ -906,19 +768,9 @@ namespace BlogProject.DataAccess.Migrations
                     b.Navigation("CorrectionRequest");
                 });
 
-            modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Author", b =>
-                {
-                    b.Navigation("Article");
-                });
-
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Category", b =>
                 {
                     b.Navigation("Articles");
-                });
-
-            modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Editor", b =>
-                {
-                    b.Navigation("Article");
                 });
 
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Tag", b =>

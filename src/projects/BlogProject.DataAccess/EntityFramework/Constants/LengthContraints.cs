@@ -9,6 +9,7 @@
         public const int THUMBNAIL_MAX_LENGTH = 250;
         public const int THUMBNAIL_MIN_LENGTH = 10;
         public const int NAME_MAX_LENGTH = 50;
+        public const int LAST_NAME_MAX_LENGTH = 70;
         public const int NAME_MIN_LENGTH = 5;
         public const int DESCRIPTION_MAX_LENGTH = 500;
         public const int DESCRIPTION_MIN_LENGTH = 10;

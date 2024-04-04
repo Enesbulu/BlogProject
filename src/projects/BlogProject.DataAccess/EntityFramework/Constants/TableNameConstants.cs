@@ -8,6 +8,8 @@
         public const string COMMENT = "COMMENTS";
         public const string TAG = "Tags";
         public const string ARTICLE_TAG= "ArticleTags";
+        public const string AUTHOR= "Authors";
+        public const string EDITOR= "Editors";
 
     }
 }
