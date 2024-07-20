@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using BlogProject.Business.Abstracts;
 using BlogProject.Business.Dtos.Article;
 using BlogProject.Business.Dtos.Articles;
@@ -7,7 +8,6 @@ using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Core.Entities.Dtos;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
 using BlogProject.Entities.Concrete.Entities;
-using System.Net;
 
 namespace BlogProject.Business.Concretes
 {

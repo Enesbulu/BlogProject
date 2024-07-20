@@ -22,7 +22,7 @@ builder.Services.AddDataAccessServices(builder.Configuration);  //Data Access ka
 builder.Services.AddBussinessServices();    //Business katmaný extensions   
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepositoryModule()));
-builder.Services.AddAutoMapper(typeof(ArticleViewModelProfiles),typeof(CategoryViewModelProfiles)); //MVC katmaný için alternatif kullanýmý  services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(typeof(ArticleViewModelProfiles), typeof(CategoryViewModelProfiles)); //MVC katmaný için alternatif kullanýmý  services.AddAutoMapper(Assembly.GetExecutingAssembly());
 #endregion
 
 
@@ -48,9 +48,94 @@ app.UseNToastNotify();
 app.ConfigureExceptionMiddleware();
 
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+#region app.UseEndpoints
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//        name: "admin",
+//        pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
+//    endpoints.MapControllerRoute(
+//        name: "user",
+//        pattern: "user/{controller=User}/{action=Index}/{id?}");
+//    endpoints.MapControllerRoute(
+//        name: "default",
+//        pattern: "{controller=Home}/{action=Index}/{id?}");
+//});
+
+//app.MapControllerRoute(
+//    name: "areas",
+//    pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{area=User}/{controller=User}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "defaultRoute",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//        name: "Admin",
+//        pattern: "Admin/{controller=Home}/{action=Index}/{id?}",
+//        defaults: new { area = "Admin" });
+
+//    endpoints.MapControllerRoute(
+//        name: "User",
+//        pattern: "User/{controller=Home}/{action=Index}/{id?}",
+//        defaults: new { area = "User" });
+
+//    endpoints.MapControllerRoute(
+//        name: "default",
+//        pattern: "{area=Blog}/{controller=Home}/{action=Index}/{id?}");
+//});
+
+
+//app.MapControllerRoute(
+//    name: "admin",
+//    pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
+
+//app.MapControllerRoute(
+//    name: "user",
+//    pattern: "user/{controller=User}/{action=Index}/{id?}");
+#endregion
+
+#region app.MapControllerRoute
+
+//app.MapControllerRoute(
+//        name: "User",
+//pattern: "{controller=User}/{action=Index}"));
+#endregion
+
+/*app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+*/
+
+
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//        name: "admin",
+//        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+//    //endpoints.MapControllerRoute(
+//    //    name: "default",
+//    //    pattern: "{controller=Home}/{action=Index}/{id?}");
+//});
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(
+        name: "defaultRoute",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.Run();
 #endregion

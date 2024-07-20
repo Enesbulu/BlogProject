@@ -29,7 +29,7 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
             builder.HasOne<Author>(a => a.Author).WithMany(aut => aut.Article).HasForeignKey(art => art.AuthorId);
             builder.HasOne<Editor>(art => art.Editor).WithMany(e => e.Article).HasForeignKey(a => a.EditorId);
             builder.ToTable(TableNameConstants.ARTICLE);
-            //builder.HasData(data: GetSeeds());
+            builder.HasData(data: GetSeeds());
 
         }
 

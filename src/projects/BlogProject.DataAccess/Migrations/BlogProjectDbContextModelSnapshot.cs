@@ -320,6 +320,59 @@ namespace BlogProject.DataAccess.Migrations
                     b.HasIndex("EditorId");
 
                     b.ToTable("Articles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("94ac6e80-1187-4623-bfbe-9149a0c04ef6"),
+                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
+                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
+                            CommentCount = 10,
+                            Content = "C# 9.0 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3639),
+                            Date = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3617),
+                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
+                            Statu = 1,
+                            Thumbnail = "csharp.png",
+                            Title = "C# 9.0",
+                            ViewCount = 100,
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("df1004b4-e6c9-4fe1-b87d-4a87f76e6e8d"),
+                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
+                            CategoryId = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
+                            CommentCount = 10,
+                            Content = "Java 11 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3652),
+                            Date = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3650),
+                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
+                            Statu = 1,
+                            Thumbnail = "java.png",
+                            Title = "Java 11",
+                            ViewCount = 100,
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = new Guid("3d9e42e2-b866-43b1-b29f-83d62733ca00"),
+                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
+                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
+                            CommentCount = 10,
+                            Content = "Python 3.9 ile ilgili makaleler",
+                            CreatedBy = "System",
+                            CreatedDate = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3658),
+                            Date = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(3656),
+                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
+                            Statu = 1,
+                            Thumbnail = "python.png",
+                            Title = "Python 3.9",
+                            ViewCount = 100,
+                            isDeleted = false
+                        });
                 });
 
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Author", b =>
@@ -391,7 +444,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0ca3d6f3-11af-4f5d-a868-b500a8c9e829",
+                            ConcurrencyStamp = "bf804529-e20a-433d-af11-782961a1fb2b",
                             Email = "orhan_balcik.@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Orhan",
@@ -459,7 +512,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2024, 4, 4, 4, 0, 42, 886, DateTimeKind.Local).AddTicks(2320),
+                            CreatedDate = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(7978),
                             Description = "C# ile ilgili makaleler",
                             Name = "C#",
                             Statu = 1,
@@ -469,7 +522,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2024, 4, 4, 4, 0, 42, 886, DateTimeKind.Local).AddTicks(2339),
+                            CreatedDate = new DateTime(2024, 4, 22, 20, 55, 57, 338, DateTimeKind.Local).AddTicks(7987),
                             Description = "Java ile ilgili makaleler",
                             Name = "Java",
                             Statu = 1,
@@ -682,7 +735,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e4576dc2-12fc-4c52-9c4e-83ed31bd14d5",
+                            ConcurrencyStamp = "2fb2ad52-4c87-4289-b1e6-5d2f820d2185",
                             Email = "yaver_kocan.@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Yaver",
