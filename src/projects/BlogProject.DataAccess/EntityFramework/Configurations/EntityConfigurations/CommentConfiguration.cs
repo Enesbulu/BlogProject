@@ -17,7 +17,7 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
                 .HasMaxLength(LengthContraints.COMMENT_CONTENT_MAXLENGTH);
             builder.Property(c => c.ArticleId).IsRequired(true).HasColumnName(ColumNameConstants.ARTICLE_ID);
             builder.Property(c => c.UserId).IsRequired(true).HasColumnName(ColumNameConstants.USER_ID);
-            builder.Property(c => c.ApprovedUserId).IsRequired(true).HasColumnName(ColumNameConstants.APPROVED_USER_ID);
+            builder.Property(c => c.ApproverId).IsRequired(true).HasColumnName(ColumNameConstants.APPROVED_USER_ID);
             builder.Property(c => c.IsPublished).IsRequired(true)
                 .HasColumnName(ColumNameConstants.IS_PUBLISHED);
             builder.Property(c => c.IsApproved).IsRequired(true).HasColumnName(ColumNameConstants.IS_APPROVED);
@@ -25,7 +25,7 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
             //
             builder.HasOne<Article>(c => c.Article).WithMany(a => a.Comment).HasForeignKey(c => c.ArticleId);
             builder.HasOne<User>(c => c.User).WithMany(u => u.Comments).HasForeignKey(c => c.UserId);
-            builder.HasOne<User>(c => c.User).WithMany(u => u.Comments).HasForeignKey(c => c.ApprovedUserId);   //?? Onay veren kişinin Id bilgisi için!
+            builder.HasOne<User>(c => c.User).WithMany(u => u.Comments).HasForeignKey(c => c.ApproverId);   //?? Onay veren kişinin Id bilgisi için!
 
 
 

@@ -1,8 +1,8 @@
-﻿namespace BlogProject.Core.Entities.ConplexType
+﻿namespace BlogProject.Core.Entities.ComplexTypes
 {
     public class Enums
     {
-        public enum RecordStatu
+        public enum RecordStatus
         {
             None = 0,
             Active = 1,

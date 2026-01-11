@@ -6,14 +6,11 @@ namespace BlogProject.Entities.Concrete.Entities
     {
         public required string Name { get; set; }
         public required string Description { get; set; }
-        public ICollection<Article> Articles { get; set; }
+        public ICollection<Article> Articles { get; set; } = new HashSet<Article>();
 
-        public Category()
-        {
-            Articles = new HashSet<Article>();
-        }
+        public Category() { }
 
-        public Category(Guid id, string name, string description) : this()
+        public Category(Guid id, string name, string description)// : this()
         {
             Id = id;
             Name = name;

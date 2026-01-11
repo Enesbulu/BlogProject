@@ -5,8 +5,8 @@ namespace BlogProject.Entities.Concrete.Entities
 {
     public class Tag : Entity<Guid>
     {
-        public string Name { get; set; } = string.Empty;
-        public ICollection<ArticlesTags> ArticleTags { get; set; }
+        public required string Name { get; set; } 
+        public ICollection<ArticlesTags> ArticleTags { get; set; } = new HashSet<ArticlesTags>();
 
         public Tag() { }
 

@@ -18,10 +18,10 @@ namespace BlogProject.Core.DataAccess.Base.Configurations
             builder.Property(x => x.CreatedDate).IsRequired(true).ValueGeneratedOnAdd();
             builder.Property(x => x.ModifiedBy).IsRequired(false).HasMaxLength(LengthContraints.CreatedByMaxLength);
             builder.Property(x => x.ModifiedDate).IsRequired(false);
-            builder.Property(x => x.isDeleted).IsRequired(true);
+            builder.Property(x => x.IsDeleted).IsRequired(true);
             builder.Property(x => x.DeletedDate).IsRequired(false);
             builder.Property(x => x.DeletedBy).IsRequired(false).HasMaxLength(LengthContraints.CreatedByMaxLength);
-            builder.HasQueryFilter(x => !x.isDeleted);
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
     public class BaseConfiguration<T> : IEntityTypeConfiguration<T>
@@ -37,10 +37,10 @@ namespace BlogProject.Core.DataAccess.Base.Configurations
             builder.Property(x => x.CreatedDate).IsRequired(true).ValueGeneratedOnAdd();
             builder.Property(x => x.ModifiedBy).IsRequired(false).HasMaxLength(LengthContraints.CreatedByMaxLength);
             builder.Property(x => x.ModifiedDate).IsRequired(false);
-            builder.Property(x => x.isDeleted).IsRequired(true);
+            builder.Property(x => x.IsDeleted).IsRequired(true);
             builder.Property(x => x.DeletedDate).IsRequired(false);
             builder.Property(x => x.DeletedBy).IsRequired(false).HasMaxLength(LengthContraints.CreatedByMaxLength);
-            builder.HasQueryFilter(x => !x.isDeleted);
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }

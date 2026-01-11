@@ -1,25 +1,26 @@
 ﻿using BlogProject.Core.Entities.Base.Abstract;
 using BlogProject.Entities.Concrete.AuthEntities;
-using static BlogProject.Core.Entities.ConplexType.Enums;
+using static BlogProject.Core.Entities.ComplexTypes.Enums;
 
 namespace BlogProject.Entities.Concrete.Entities
 {
     public class CorrectionRequest : Entity<Guid>
     {
-
-        public required Guid ArticleId { get; set; }
-        public required Guid UserId { get; set; }
         public required string RequestContent { get; set; } = string.Empty;
-        public required CorrectionRequestStatus Status { get; set; } = CorrectionRequestStatus.None;
+        public required CorrectionRequestStatus Status { get; set; } = CorrectionRequestStatus.Pending;
+
+
+
 
         // İlişkiler
+        public required Guid ArticleId { get; set; }
         public Article Article { get; set; }
+
+        public required Guid UserId { get; set; }
         public User User { get; set; }
 
-        public CorrectionRequest()
-        {
 
-        }
+        public CorrectionRequest() { }
 
         public CorrectionRequest(Guid articleId, Guid userId, string requestContent, CorrectionRequestStatus status)
         {

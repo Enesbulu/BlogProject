@@ -176,16 +176,16 @@ namespace BlogProject.Core.DataAccess.Base.Repositories
                 ?? throw new InvalidOperationException("CreateQuery<TElement> method is not found in IQueryProvider.");
             var queryProviderQuery =
                 (IQueryable<object>)createQueryMethod.Invoke(query.Provider, parameters: new object[] { query.Expression })!;
-            return queryProviderQuery.Where(x => !((IHasTimeStamps)x).DeletedDate.HasValue);
+            return queryProviderQuery.Where(x => !((IHasTimestamps)x).DeletedDate.HasValue);
         }
 
-        private async Task SetEntityAsSoftDeletedAsync(IHasTimeStamps hasTimeStamps)
+        private async Task SetEntityAsSoftDeletedAsync(IHasTimestamps hasTimeStamps)
         {
             if (hasTimeStamps.DeletedDate.HasValue)
                 return;
 
             hasTimeStamps.DeletedDate = DateTime.Now;
-            hasTimeStamps.isDeleted = true;
+            hasTimeStamps.IsDeleted = true;
 
             var navigations = Context
            .Entry(hasTimeStamps)
@@ -211,7 +211,7 @@ namespace BlogProject.Core.DataAccess.Base.Repositories
                             continue;
                     }
 
-                    foreach (IHasTimeStamps navValueItem in (IEnumerable)navValue)
+                    foreach (IHasTimestamps navValueItem in (IEnumerable)navValue)
                         await SetEntityAsSoftDeletedAsync(navValueItem);
                 }
                 else
@@ -225,7 +225,7 @@ namespace BlogProject.Core.DataAccess.Base.Repositories
                             continue;
                     }
 
-                    await SetEntityAsSoftDeletedAsync((IHasTimeStamps)navValue);
+                    await SetEntityAsSoftDeletedAsync((IHasTimestamps)navValue);
                 }
             }
 

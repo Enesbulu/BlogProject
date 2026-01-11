@@ -1,4 +1,5 @@
 ﻿using BlogProject.Core.Entities.Base.Abstract;
+using BlogProject.Entities.Concrete.AuthEntities;
 using BlogProject.Entities.Concrete.Entities.RelationshipTables;
 
 namespace BlogProject.Entities.Concrete.Entities
@@ -7,25 +8,31 @@ namespace BlogProject.Entities.Concrete.Entities
     {
         public required string Title { get; set; }
         public required string Content { get; set; }
-        public required string Thumbnail { get; set; }
+        public required string Thumbnail { get; set; } // Resim yolu
         public DateTime Date { get; set; }
         public int ViewCount { get; set; } = 0;
         public int CommentCount { get; set; } = 0;
+
+        // --- İLİŞKİLER ---
+
+        // Kategori İlişkisi
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-        public IEnumerable<Comment?> Comment { get; set; }
-        public IEnumerable<CorrectionRequest?> CorrectionRequest { get; set; }
-        public ICollection<ArticlesTags> ArticleTags { get; set; }
 
-        public  Guid? AuthorId { get; set; } = default!;
-        public Author Author { get; set; }
-        public  Guid? EditorId { get; set; } = default!;
-        public Editor Editor { get; set; }
+        // Yazar İlişkisi (User tablosuna gider)
+        public Guid AuthorId { get; set; } // Makaleyi yazan User'ın ID'si
+        public User Author { get; set; }   // Navigation Property
 
-        //public Guid UserId { get; set; }
-        //public User User { get; set; }
+        // Editör İlişkisi (User tablosuna gider, NULL olabilir çünkü her makale editlenmez)
+        public Guid? EditorId { get; set; }
+        public User? Editor { get; set; }
 
+        // Diğer İlişkiler
+        public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
+        public ICollection<CorrectionRequest> CorrectionRequests { get; set; } = new HashSet<CorrectionRequest>();
+        public ICollection<ArticlesTags> ArticleTags { get; set; } = new HashSet<ArticlesTags>();
 
+       
         public Article() { }
 
         public Article(Guid id, string title, string content, string thumbnail, DateTime date, int viewCount, int commentCount, Guid categoryId, ICollection<ArticlesTags> articleTags, Guid authorId, Guid editorId)
