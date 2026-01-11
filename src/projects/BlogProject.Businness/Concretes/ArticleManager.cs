@@ -1,5 +1,4 @@
-﻿using System.Net;
-using AutoMapper;
+﻿using AutoMapper;
 using BlogProject.Business.Abstracts;
 using BlogProject.Business.Dtos.Article;
 using BlogProject.Business.Dtos.Articles;
@@ -8,6 +7,7 @@ using BlogProject.Core.DataAccess.Base.Paging;
 using BlogProject.Core.Entities.Dtos;
 using BlogProject.DataAccess.EntityFramework.Repositories.Abstracts;
 using BlogProject.Entities.Concrete.Entities;
+using System.Net;
 
 namespace BlogProject.Business.Concretes
 {
@@ -24,6 +24,13 @@ namespace BlogProject.Business.Concretes
 
         public async Task<CustomResponseDto<ArticleGetDto>> AddAsync(ArticleAddDto articleAddDto, CancellationToken cancellationToken = default)
         {
+            // AuthorId kontrolü
+            if (articleAddDto.AuthorId == Guid.Empty)
+            {
+                // Eğer AuthorId bulunamazsa, statik bir GUID değeri ata
+                articleAddDto.AuthorId = Guid.Parse("2a4e5f76-c483-4b7c-bc8d-e051ce821fcf");
+            }
+
             Article article = _mapper.Map<Article>(articleAddDto);
             Article addedArticle = await _articleRepository.AddAsync(article);
             ArticleGetDto result = _mapper.Map<ArticleGetDto>(addedArticle);

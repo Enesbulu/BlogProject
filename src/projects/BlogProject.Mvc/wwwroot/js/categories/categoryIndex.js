@@ -12,20 +12,22 @@
 
     /// Add-Get  -- Ajax ile GET işlemi yapıcaz ve modalı doldurcaz. İşlem Yeni kategori oluşturma.Boş modal açılır.
     $(function () {
-        const url = "/Categories/Categories/Add"; // Tetiklenecek action yolunu atanıyor.
+        const url = "../Categories/Add"; // Tetiklenecek action yolunu atanıyor.
         const placeHolderDiv = $('#modalPlaceHolder'); // Etkilenecek olan div'in id'si atanıyor.
 
         // '.btn-add' sınıfına sahip butona tıklandığında...
         $(document).on('click', '.btn-add', function (event) {
             event.preventDefault(); // Mevcut bütün özellikleri sıfırla.
+            //const url = $(this).data('url');
             // Ajax isteği gönder
             $.get(url)
                 .done(function (data) { // İstek başarılı olduğunda yapılacak işlemler
                     placeHolderDiv.html(data); // Belirttiğimiz div'in içerisine gelen veriyi yerleştir
                     placeHolderDiv.find('.modal').modal('show'); // Div'i görünür yap
+
                 })
                 .fail(function () { // İstekte hata olursa çalışacak kısım
-                    toastr.error("Bir hata meydana geldi!");
+                    toastr.error("Ekleme işleminde Bir hata meydana geldi!");
                 });
         });
     });
@@ -68,8 +70,6 @@
                 });
                 toastr.warning(summaryText);
             }
-
-
         }).fail(function (response) {
             toastr.error("Bir hata meydana geldi");
         });
@@ -81,7 +81,7 @@
 
     /// Get-Update -- Ajax ile GET işlemi yapıcaz ve modalı doldurcaz.Dolu olarak modal açılır.
     $(function () {
-        const url = "/Categories/Categories/Update/" //tetiklenecek action yolu atanıyor.
+        const url = "../Categories/Update/" //tetiklenecek action yolu atanıyor.
         const placeHolderDiv = $('#modalPlaceHolder');   //etkilenecek olan div'in id'si atanıyor.
         $(document).on('click',
             '.btn-update',
@@ -120,7 +120,9 @@
                     categoryUpdateAjaxModel.CategoryGetDto.Id,
                     categoryUpdateAjaxModel.CategoryGetDto.Name,
                     categoryUpdateAjaxModel.CategoryGetDto.Description,
-                    `<button class="btn btn-warning btn-sm btn-update" data-id="${id}"><i class="fas fa-edit"></i></button>`
+                    `<button class="btn btn-warning btn-sm btn-update" data-id="${id}"><i class="fas fa-edit"></i></button>
+                    <button data-id="${id}" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash-alt"></i></button>`
+
                 ]);
 
                 tableRow.attr("name", `${id}`);
@@ -150,7 +152,7 @@
     //        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json"
     //    }
     //});
-
+    ////---Bu metod çalışıyor!!
     $(document).on("click", ".btn-delete", function (event) {
         event.preventDefault();
         const id = $(this).attr("data-id");
@@ -171,7 +173,7 @@
                     type: "DELETE",
                     dataType: "json",
                     data: { categoryId: id },
-                    url: "/Categories/Categories/Delete/{categoryId}",
+                    url: `../Categories/Delete/${id}`,
                     success: function (data) {
                         if (data.isSuccess) {
 

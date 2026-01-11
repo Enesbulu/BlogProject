@@ -107,35 +107,22 @@ app.ConfigureExceptionMiddleware();
 //pattern: "{controller=User}/{action=Index}"));
 #endregion
 
-/*app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-*/
-
-
-
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllerRoute(
-//        name: "admin",
-//        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-//    //endpoints.MapControllerRoute(
-//    //    name: "default",
-//    //    pattern: "{controller=Home}/{action=Index}/{id?}");
-//});
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute(
+    app.MapControllerRoute(
         name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-    endpoints.MapControllerRoute(
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+        );
+
+    app.MapControllerRoute(
         name: "default",
-        pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
-    endpoints.MapControllerRoute(
-        name: "defaultRoute",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Home}/{action=Index}/{id?}",
+        defaults: new { area = "User" }
+        );
+
 });
 
 app.Run();
+
 #endregion

@@ -11,7 +11,7 @@ using NToastNotify;
 
 namespace BlogProject.Mvc.Areas.Admin.Controllers
 {
-    [Area("Admin/Article")]
+    [Area("Admin")]
     public class ArticleController : BaseController
     {
         private readonly IArticleService _articleService;

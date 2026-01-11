@@ -8,7 +8,7 @@ namespace BlogProject.DataAccess.EntityFramework.Repositories.Concretes
     public class CategoryRepository : EfRepositoryBase<Category, Guid, BlogProjectDbContext>, ICategoryRepository
     {
         public CategoryRepository(BlogProjectDbContext context) : base(context)
-        {
+       {
         }
     }
 }

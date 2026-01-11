@@ -28,7 +28,7 @@ $(document).ready(function () {
                     type: "DELETE",
                     dataType: "json",
                     data: { articleId: id },
-                    url: "/Articles/Articles/Delete/",
+                    url: "../Articles/Delete/",
                     success: function (data) {
                         if (data.isSuccess) {
 

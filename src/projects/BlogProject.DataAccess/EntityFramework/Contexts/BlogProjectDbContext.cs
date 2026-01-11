@@ -46,21 +46,21 @@ namespace BlogProject.DataAccess.EntityFramework.Contexts
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var entities = ChangeTracker.Entries().Where(x => x.Entity is Entity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            var entities = ChangeTracker.Entries().Where(x => x.Entity is IEntity<Guid> && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
             foreach (var entity in entities)
             {
                 var now = DateTime.UtcNow;
-                var user = _httpContextAccessor.HttpContext?.User?.Identity?.Name ?? "anonymous";
+                var user = _httpContextAccessor.HttpContext?.User?.Identity?.Name ??  "anonymous";
 
                 if (entity.State == EntityState.Added)
                 {
-                    ((Entity)entity.Entity).CreatedBy = user;
-                    ((Entity)entity.Entity).CreatedDate = now;
+                    ((Entity<Guid>)entity.Entity).CreatedBy = user;
+                    ((Entity<Guid>)entity.Entity).CreatedDate = now;
                 }
 
-                ((Entity)entity.Entity).ModifiedBy = user;
-                ((Entity)entity.Entity).ModifiedDate = now;
+                ((Entity<Guid>)entity.Entity).ModifiedBy = user;
+                ((Entity<Guid>)entity.Entity).ModifiedDate = now;
             }
 
             return base.SaveChangesAsync(cancellationToken);

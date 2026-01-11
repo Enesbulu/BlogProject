@@ -30,7 +30,11 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
                     Id = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"), FirstName = "Orhan", LastName = "Balçık",
                     Email = "orhan_balcik.@mail.com"
                 },
-               
+                new Author
+                {
+                    Id = Guid.Parse("2a4e5f76-c483-4b7c-bc8d-e051ce821fcf"), FirstName = "admin", LastName = "admin",
+                    Email = "admin@admin.com"
+                }
             ];
 
             return authors;

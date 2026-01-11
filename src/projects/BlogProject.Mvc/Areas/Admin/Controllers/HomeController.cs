@@ -7,7 +7,7 @@ namespace BlogProject.Mvc.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("/Areas/Admin/Views/Home/Index.cshtml");
         }
     }
 }

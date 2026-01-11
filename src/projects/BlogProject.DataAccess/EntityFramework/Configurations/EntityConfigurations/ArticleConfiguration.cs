@@ -44,7 +44,7 @@ namespace BlogProject.DataAccess.EntityFramework.Configurations.EntityConfigurat
                 new Article { Id = Guid.NewGuid(), Title = "C# 9.0", Content = "C# 9.0 ile ilgili makaleler", Thumbnail = "csharp.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now,AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6")},
 
                 new Article { Id = Guid.NewGuid(), Title = "Java 11", Content = "Java 11 ile ilgili makaleler", Thumbnail = "java.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("c33260dd-b051-4a2d-923a-4c16553e4753"), CreatedBy = "System", CreatedDate = DateTime.Now, AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6")},
-                
+
                 new Article { Id = Guid.NewGuid(), Title = "Python 3.9", Content = "Python 3.9 ile ilgili makaleler", Thumbnail = "python.png", Date = DateTime.Now, ViewCount = 100, CommentCount = 10, CategoryId = Guid.Parse("62efdf5e-a5a6-47c8-b853-8de7a23308b3"), CreatedBy = "System", CreatedDate = DateTime.Now,AuthorId = Guid.Parse("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),EditorId =  Guid.Parse("8fc0e49b-fc50-452e-825c-722f95163ea6") },
             ];
 

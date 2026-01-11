@@ -4,8 +4,7 @@ using System.Diagnostics;
 
 namespace BlogProject.Mvc.Controllers
 {
-    [Area("User")]
-
+ 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,10 +14,10 @@ namespace BlogProject.Mvc.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {

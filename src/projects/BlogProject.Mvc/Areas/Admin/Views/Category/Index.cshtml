@@ -18,7 +18,7 @@
             <!--Add Button-->
             @* <a asp-controller="Categories" class="btn btn-success btn-sm float-end float-md-right btn-add" data-toggle="tooltip" data-placement="top" title="Ekle"><i class="fas fa-plus"></i></a>
             <br/> *@
-            <button id="addButon" class="btn btn-success  btn-sm float-md-right btn-add" data-toggle="tooltip" data-placement="top" title="Ekle"><i class="fas fa-plus"></i></button>
+            <button id="addButon" data-url :"@Url.Action("Add","Category", new {AreaAttribute ="Admin"})" class="btn btn-success  btn-sm float-md-right btn-add" data-toggle="tooltip" data-placement="top" title="Ekle"><i class="fas fa-plus"></i></button>
             @* <button  class="btn btn-primary btn-sm btn-add"><i class="fas fa-plus"></i></button> *@
         </div>
         <div class="card-body">
@@ -41,7 +41,7 @@
 
                         </tr>
                     </tfoot>
-                    <tbody>
+                    <tbody id="categoryTableContainer">
                         @foreach (CategoryListDto category in Model.Data)
                         {
                             <tr name="@category.Id">

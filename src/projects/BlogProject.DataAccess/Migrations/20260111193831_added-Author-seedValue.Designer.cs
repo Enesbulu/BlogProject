@@ -4,6 +4,7 @@ using BlogProject.DataAccess.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProject.DataAccess.Migrations
 {
     [DbContext(typeof(BlogProjectDbContext))]
-    partial class BlogProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260111193831_added-Author-seedValue")]
+    partial class addedAuthorseedValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,8 +243,7 @@ namespace BlogProject.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AuthorId")
-                        .IsRequired()
+                    b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("AuthorId");
 
@@ -279,7 +281,7 @@ namespace BlogProject.DataAccess.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("EditorId")
+                    b.Property<Guid>("EditorId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("EditorId");
 
@@ -321,59 +323,6 @@ namespace BlogProject.DataAccess.Migrations
                     b.HasIndex("EditorId");
 
                     b.ToTable("Articles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("b960f7fe-dcae-47b1-bb58-1b9932d68cdb"),
-                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
-                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
-                            CommentCount = 10,
-                            Content = "C# 9.0 ile ilgili makaleler",
-                            CreatedBy = "System",
-                            CreatedDate = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(5278),
-                            Date = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(4839),
-                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
-                            Statu = 1,
-                            Thumbnail = "csharp.png",
-                            Title = "C# 9.0",
-                            ViewCount = 100,
-                            isDeleted = false
-                        },
-                        new
-                        {
-                            Id = new Guid("dcb6d8d1-02d7-4982-aa3b-9b6203712cd1"),
-                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
-                            CategoryId = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
-                            CommentCount = 10,
-                            Content = "Java 11 ile ilgili makaleler",
-                            CreatedBy = "System",
-                            CreatedDate = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(5298),
-                            Date = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(5296),
-                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
-                            Statu = 1,
-                            Thumbnail = "java.png",
-                            Title = "Java 11",
-                            ViewCount = 100,
-                            isDeleted = false
-                        },
-                        new
-                        {
-                            Id = new Guid("7278fa9b-397a-47a9-8222-71cddaeeafda"),
-                            AuthorId = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
-                            CategoryId = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
-                            CommentCount = 10,
-                            Content = "Python 3.9 ile ilgili makaleler",
-                            CreatedBy = "System",
-                            CreatedDate = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(5302),
-                            Date = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(5301),
-                            EditorId = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
-                            Statu = 1,
-                            Thumbnail = "python.png",
-                            Title = "Python 3.9",
-                            ViewCount = 100,
-                            isDeleted = false
-                        });
                 });
 
             modelBuilder.Entity("BlogProject.Entities.Concrete.Entities.Author", b =>
@@ -445,7 +394,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("1f3d3c64-b372-4a6b-ab7d-d940bd710ebe"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5a178ddf-9d82-409a-bfdc-95a5f18bec30",
+                            ConcurrencyStamp = "df8b842d-c09a-4ac6-888b-7fdc2649d746",
                             Email = "orhan_balcik.@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Orhan",
@@ -458,7 +407,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("2a4e5f76-c483-4b7c-bc8d-e051ce821fcf"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2f1c5933-499f-4e1d-ba8c-1d1c09ace98e",
+                            ConcurrencyStamp = "564d39a9-c447-458b-876c-b032fc1d89a6",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "admin",
@@ -526,7 +475,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("62efdf5e-a5a6-47c8-b853-8de7a23308b3"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(9433),
+                            CreatedDate = new DateTime(2026, 1, 11, 22, 38, 30, 748, DateTimeKind.Local).AddTicks(2972),
                             Description = "C# ile ilgili makaleler",
                             Name = "C#",
                             Statu = 1,
@@ -536,7 +485,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("c33260dd-b051-4a2d-923a-4c16553e4753"),
                             CreatedBy = "System",
-                            CreatedDate = new DateTime(2026, 1, 11, 22, 47, 6, 858, DateTimeKind.Local).AddTicks(9445),
+                            CreatedDate = new DateTime(2026, 1, 11, 22, 38, 30, 748, DateTimeKind.Local).AddTicks(2989),
                             Description = "Java ile ilgili makaleler",
                             Name = "Java",
                             Statu = 1,
@@ -749,7 +698,7 @@ namespace BlogProject.DataAccess.Migrations
                         {
                             Id = new Guid("8fc0e49b-fc50-452e-825c-722f95163ea6"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bae4aca2-33c0-4b42-bbb5-30ee545b3216",
+                            ConcurrencyStamp = "84a00819-6377-4e41-8644-dbd8961c4f1d",
                             Email = "yaver_kocan.@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Yaver",
@@ -889,7 +838,9 @@ namespace BlogProject.DataAccess.Migrations
 
                     b.HasOne("BlogProject.Entities.Concrete.Entities.Editor", "Editor")
                         .WithMany("Article")
-                        .HasForeignKey("EditorId");
+                        .HasForeignKey("EditorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Author");
 

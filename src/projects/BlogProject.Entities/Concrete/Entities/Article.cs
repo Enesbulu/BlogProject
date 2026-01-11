@@ -13,17 +13,18 @@ namespace BlogProject.Entities.Concrete.Entities
         public int CommentCount { get; set; } = 0;
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-        public IEnumerable<Comment?> Comment { get; set; } = default;
-        public IEnumerable<CorrectionRequest?> CorrectionRequest { get; set; } = default;
+        public IEnumerable<Comment?> Comment { get; set; }
+        public IEnumerable<CorrectionRequest?> CorrectionRequest { get; set; }
         public ICollection<ArticlesTags> ArticleTags { get; set; }
 
-        public required Guid AuthorId { get; set; } = default!;
+        public  Guid? AuthorId { get; set; } = default!;
         public Author Author { get; set; }
-        public required Guid EditorId { get; set; } = default!;
+        public  Guid? EditorId { get; set; } = default!;
         public Editor Editor { get; set; }
 
         //public Guid UserId { get; set; }
         //public User User { get; set; }
+
 
         public Article() { }
 
